@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS audit_logs CASCADE;
+
+CREATE TABLE audit_logs (
+  id UUID PRIMARY KEY,
+  tenant_id UUID REFERENCES tenants(id) ON DELETE CASCADE,
+  action TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
